@@ -1,18 +1,17 @@
-$(window).on("scroll", function() {
-    var navigation = $('.navigation-inner').height();
-    var scrollHeight = $('#wrapper').height() + navigation;
-    var scrollPosition = $(window).height() + $(window).scrollTop();
-    if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
-        trickleDone();
-        $(window).off("scroll");
-    }
-});
-
-$('.trickle-button-component .trickle-button-inner button').each(function(button){
+var trickle_buttons = $('.trickle-button-component .trickle-button-inner button');
+var loop_length = trickle_buttons.length;
+var loop_count = 0;
+trickle_buttons.each(function(){   
+    loop_count++;
     this.click();
+    if(loop_count === loop_length){
+        trickleDone();
+    }
 })
 
 function trickleDone(){
     console.log('All trickle clicked');
-    $('body').scrollTo(0);
+    setTimeout(function(){
+        $('body').scrollTo(0);
+    }, 3000)
 }
