@@ -1,4 +1,4 @@
-console.log('starting trickle script');
+console.log('trickle script running');
 var trickle_buttons = $('.trickle-button-component .trickle-button-inner button');
 var loop_length = trickle_buttons.length;
 var loop_count = 0;
